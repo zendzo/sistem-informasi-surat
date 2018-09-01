@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
         User::create([
         	'first_name' => 'Administrator',
 	        'last_name' => 'System',
-            'email' => 'admin@kejaksaan.com',
+            'email' => 'admin@admin.com',
             'gender_id' => 1,
             'birth_date' => '12/09/1992',
 	        'phone' => env('CUSTOMER_TEST_PHONENUMBER'),
