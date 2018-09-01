@@ -10,7 +10,7 @@
         <img src="{{ Auth::user()->avatar }}g" class="img-circle" alt="User Image">
 
         <p>
-            Alexander Pierce - Web Developer
+            {{ title_case(Auth::user()->fullName ) }}
             <small>Member since Nov. 2012</small>
         </p>
         </li>
@@ -35,7 +35,16 @@
             <a href="#" class="btn btn-default btn-flat">Profile</a>
         </div>
         <div class="pull-right">
-            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+            <a href="{{ route('logout') }}"
+                class="btn btn-default btn-flat"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </div>
         </li>
     </ul>
