@@ -88,6 +88,8 @@
 <script src="{{ asset ('AdminLTE/plugins/fastclick/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset ('AdminLTE/dist/js/app.min.js') }}"></script>
+<!-- Sweet alert -->
+<script src="{{ asset ('AdminLTE/dist/js/sweetalert.min.js') }}" type="text/javascript"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ('AdminLTE/dist/js/demo.js') }}"></script>
 
