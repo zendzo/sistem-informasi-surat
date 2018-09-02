@@ -9,7 +9,12 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'administrator'], f
 
 	Route::get('/',[
 		'as'	=>	'dashboard',
-		'uses'	=>	'AdministratorController@index'
+		'uses'	=>	'Admin\AdministratorController@index'
+	]);
+
+	Route::get('/application-menus',[
+		'as'	=>	'app.menu',
+		'uses'	=>	'Admin\MenuController@index'
 	]);
 });
 
