@@ -157,33 +157,20 @@
         </div>
         <!-- /.form-group -->
 
-        <h3 class="control-sidebar-heading">Chat Settings</h3>
+        <!-- Role Setting -->
+        <h3 class="control-sidebar-heading">@lang('application.role setting')</h3>
 
         <div class="form-group">
         <label class="control-sidebar-subheading">
-            Show me as online
-            <input type="checkbox" class="pull-right" checked>
+            @lang('application.role setting')
+            <a href="{{ route('admin.role.index') }}" class="text-red pull-right"><i class="fa fa-users"></i></a>
         </label>
+        <p>
+            @lang('application.role desc')
+        </p>
         </div>
-        <!-- /.form-group -->
 
-        <div class="form-group">
-        <label class="control-sidebar-subheading">
-            Turn off notifications
-            <input type="checkbox" class="pull-right">
-        </label>
-        </div>
-        <!-- /.form-group -->
-
-        <div class="form-group">
-        <label class="control-sidebar-subheading">
-            Delete chat history
-            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-        </label>
-        </div>
-        <!-- /.form-group -->
-
-        <h3 class="control-sidebar-heading">@lang('application.menu')</h3>
+        <h3 class="control-sidebar-heading">@lang('application.menu setting')</h3>
 
         <div class="form-group">
         <label class="control-sidebar-subheading">
