@@ -20,6 +20,9 @@ class CreateSubMenuItemsTable extends Migration
             $table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
             // still looking for solution fot three levels menu
             // $table->integer('parent_id')->nullable()->default(NULL);
+            $table->string('icon', 20)->nullable()->default('fa-circle-o');
+            $table->string('url', 100)->nullable();
+            $table->string('active', 100)->nullable();
             $table->timestamps();
         });
     }

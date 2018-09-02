@@ -18,6 +18,9 @@ class CreateMenuItemsTable extends Migration
             $table->string('name', 100);
             $table->integer('menu_category_id')->unsigned()->nullable()->default(1);
             $table->foreign('menu_category_id')->references('id')->on('menu_categories')->onDelete('cascade');
+            $table->string('icon', 20)->nullable()->default('fa-circle-o');
+            $table->string('url', 100)->nullable();
+            $table->string('active', 100)->nullable();
             $table->timestamps();
         });
     }
