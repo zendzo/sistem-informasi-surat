@@ -182,6 +182,16 @@
         </label>
         </div>
         <!-- /.form-group -->
+
+        <h3 class="control-sidebar-heading">@lang('application.menu')</h3>
+
+        <div class="form-group">
+        <label class="control-sidebar-subheading">
+            @lang('application.menu desc')
+        <a href="{{ route('admin.app.menu') }}" class="text-red pull-right"><i class="fa fa-tasks"></i></a>
+        </label>
+        </div>
+        <!-- /.form-group -->
     </form>
     </div>
     <!-- /.tab-pane -->
