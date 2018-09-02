@@ -25,7 +25,7 @@
                      <tr>
                         <td>{{ $role->id }}</td>
                         <td>{{ $role->name }}</td>
-                        <td width="10%" class="text-center">
+                        <td width="20%">
                            <a class="btn btn-xs btn-info" href="{{ route('admin.role.show',$role->id) }}">
                               <span class="fa fa-info fa-fw"></span>
                            </a>

@@ -3,7 +3,7 @@
    <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">×</span></button>
-      <h3 class="box-title"></h3>
+      <h4 class="box-title">{{ $page_title or config('app.name') }}</h4>
    </div>
    <div class="modal-body">
       <form class="form-horizontal"  action="{{ route('admin.role.update',$role->id) }}" method="POST">
