@@ -15,7 +15,19 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    /**
+     * Web Application Description
+     * 
+     */
+
     'desc' => env('APP_DESC', 'Laravel Web Application'),
+
+    /**
+     * Web Applicaton Login and Register Template Contfig
+     * 
+     */
+
+    'auth_template' => env('APP_AUTH_TEMPLATE'),
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +47,7 @@ return [
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
+    
     | When your application is in debug mode, detailed error messages with
     | stack traces will be shown on every error that occurs within your
     | application. If disabled, a simple generic error page is shown.
