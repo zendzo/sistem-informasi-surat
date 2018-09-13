@@ -78,7 +78,9 @@
     </div>
 <!-- /.box-body -->
 <div class="box-footer clearfix no-border">
-    <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+    <a class="btn btn-default pull-right"><i class="fa fa-plus"></i> @lang('application.add category')</a>
+    <a class="btn btn-default pull-right"><i class="fa fa-plus"></i> @lang('application.add menu')</a>
+    <a class="btn btn-default pull-right"><i class="fa fa-plus"></i> @lang('application.add submenu')</a>
 </div>
 </div> 
 @endsection
