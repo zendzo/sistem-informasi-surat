@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (! $this->app->runningInConsole()) {
 
-            View::share('menuCategories', MenuCategory::with('menuItems.subMenuItems')->get());
+            // View::share('menuCategories', MenuCategory::with('menuItems')->get());
         }
     }
 

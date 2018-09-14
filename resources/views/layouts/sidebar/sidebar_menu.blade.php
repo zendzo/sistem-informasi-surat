@@ -1,31 +1,22 @@
 <ul class="sidebar-menu">
-   @foreach ($menuCategories as $category)
-
-   <li class="header">{{ strtoupper($category->name) }}</li>
-
-      @foreach ($category->menuItems as $menuItems)
-
-            <li class="treeview {{ active($menuItems->active) }}">
-               <a href="{{ route($menuItems->url) }}">
-                  <i class="fa fa-dashboard"></i> <span>{{ $menuItems->name }}</span>
+<li class="header">MAIN NAVIGATION</li>
+      {{-- @foreach ($menuCategories as $category)
+      <li class="treeview {{ active($category->active) }}">
+            <a href="#">
+            <i class="fa fa-dashboard"></i> <span>{{ ucfirst($category->name) }}</span>
                   <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
+                  <i class="fa fa-angle-left pull-right"></i>
                   </span>
-               </a>
-               <ul class="treeview-menu {{ active('$menuItems->active') }}">
-                  @foreach ($menuItems->subMenuItems as $subMenuItem)
-                     <li class="{{ active($subMenuItem->active) }}">
-                        <a href="{{ route($subMenuItem->url) }}"><i class="fa fa-circle-o"></i> {{ $subMenuItem->name }}
-                     </a>
-                     {{-- <ul class="treeview-menu">
-                        @foreach ($subMenuItem->childSubMenuItems as $childSubMenu)
-                           <li><a href="#"><i class="fa fa-circle-o"></i> {{$childSubMenu->name}}</a></li>
-                        @endforeach
-                     </ul> --}}
-                     </li>
+            </a>
+            <ul class="treeview-menu">
+                  @foreach ($category->menuItems as $menu)
+                        <li class="{{ active($category->active) }}">
+                              <a href="{{ route($menu->url) }}">
+                                    <i class="fa {{ $menu->icon }}"></i> {{$menu->name}}
+                              </a>
+                        </li>    
                   @endforeach
-               </ul>
-            </li>
-      @endforeach
-   @endforeach
+            </ul>
+      </li>
+      @endforeach --}}
 </ul>

@@ -12,16 +12,20 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 1; $i++) { 
-            $categories = MenuCategory::create(['name' => 'category-00'.$i ]);
+        for ($i=0; $i < 2; $i++) { 
+            $categories = MenuCategory::create([
+                'name' => 'category-00'.$i,
+                'url' => '#',
+                'active' => 'admin.*'
+                ]);
 
-            $submenu = $categories->menuItems()->create([
+            $menu = $categories->menuItems()->create([
                 'name'      => 'menu-item-00'.$i,
                 'url'       => 'admin.dashboard',
                 'active'    => 'admin.dashboard'
                 ]);
 
-            $submenu->subMenuItems()->create([
+            $submenu = $menu->subMenuItems()->create([
                 'name' => 'submenu-item-00'.$i,
                 'url'       => 'admin.dashboard',
                 'active'    => 'admin.dashboard'

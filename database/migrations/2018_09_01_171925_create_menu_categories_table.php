@@ -15,7 +15,10 @@ class CreateMenuCategoriesTable extends Migration
     {
         Schema::create('menu_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 100);
+            $table->string('name', 20);
+            $table->string('icon', 20)->nullable()->default('fa-circle-o');
+            $table->string('url', 100)->nullable();
+            $table->string('active', 100)->nullable();
             $table->timestamps();
         });
     }

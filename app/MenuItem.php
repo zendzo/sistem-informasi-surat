@@ -12,9 +12,4 @@ class MenuItem extends Model
     {
         return $this->belongsTo(MenuCategory::category);
     }
-
-    public function subMenuItems()
-    {
-        return $this->hasMany(SubMenuItem::class);
-    }
 }
