@@ -1,17 +1,17 @@
 <!-- User Account: style can be found in dropdown.less -->
 <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <img src="{{ Auth::user()->avatar }}" class="user-image" alt="User Image">
-        <span class="hidden-xs">Alexander Pierce</span>
+        <img src="{{ Auth::user()->profile ? asset(Auth::user()->avatar) : Auth::user()->avatar }}" class="user-image" alt="User Image">
+        <span class="hidden-xs">{{ Auth::user()->fullName }}</span>
     </a>
     <ul class="dropdown-menu">
         <!-- User image -->
         <li class="user-header">
-        <img src="{{ Auth::user()->avatar }}g" class="img-circle" alt="User Image">
+        <img src="{{ Auth::user()->profile ? asset(Auth::user()->avatar) : Auth::user()->avatar }}" class="img-circle" alt="User Image">
 
         <p>
             {{ title_case(Auth::user()->fullName ) }}
-            <small>Member since Nov. 2012</small>
+            <small>Member since {{ Auth::user()->created_at->diffForHumans() }}</small>
         </p>
         </li>
         <!-- Menu Body -->

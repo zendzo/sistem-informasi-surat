@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
@@ -17,14 +16,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'username',
         'email',
-        'phone',
         'password',
         'role_id',
-        'birth_date',
-        'gender_id',
     ];
 
     /**
@@ -36,28 +31,26 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function setBirthDateAttribute($value)
-    {
-        $this->attributes['birth_date'] = Carbon::createFromFormat('d/m/Y',$value)->toDateString();
-    }
-
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
-
     public function getFullNameAttribute()
     {
-        return $this->first_name.' '.$this->last_name;
+        return $this->first_name.' '.$this->last_name ? $this->username : $this->email;
     }
 
     public function getAvatarAttribute()
 	{
-		return sprintf('https://www.gravatar.com/avatar/%s?s=100',md5($this->email));
+		if (!is_null($this->profile)) {
+            return $this->profile->avatar;
+        }
+       return sprintf('https://www.gravatar.com/avatar/%s?s=100',md5($this->email));
 	}
 
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
     }
 }
