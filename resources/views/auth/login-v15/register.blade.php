@@ -6,14 +6,25 @@
           {{ csrf_field() }}
           <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
               <span class="label-input100">Username</span>
-              <input class="input100" type="text" name="email" value="{{ old('email') }}" placeholder="Enter email">
+              <input class="input100" type="text" name="username" value="{{ old('username') }}" placeholder="Enter username">
               <span class="focus-input100"></span>
-              @if ($errors->has('email'))
+              @if ($errors->has('username'))
               <span class="input-error" role="alert">
-                  {{ $errors->first('email') }}
+                  {{ $errors->first('username') }}
               </span> 
               @endif
           </div>
+
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
+            <span class="label-input100">E-mail</span>
+            <input class="input100" type="text" name="email" value="{{ old('email') }}" placeholder="Enter email">
+            <span class="focus-input100"></span>
+            @if ($errors->has('email'))
+            <span class="input-error" role="alert">
+                {{ $errors->first('email') }}
+            </span> 
+            @endif
+        </div>
   
           <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
               <span class="label-input100">Password</span>
@@ -26,7 +37,7 @@
               @endif
           </div>
 
-          <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+          <div class="wrap-input100 validate-input m-b-18" data-validate="Password Confirmation is required">
             <span class="label-input100">Confirm Password</span>
             <input class="input100" type="password" name="password_confirmation" placeholder="Enter password">
             <span class="focus-input100"></span> 

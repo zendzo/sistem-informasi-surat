@@ -14,15 +14,19 @@ class AdminSeeder extends Seeder
     {
         $user = new User;
 
-        User::create([
-        	'first_name' => 'Administrator',
-	        'last_name' => 'System',
+        $administrator = User::create([
+        	'name' => 'Administrator',
             'email' => 'admin@admin.com',
+	        'password' => 'adminadmin',
+	        'role_id' => 1,
+        ]);
+
+        $administrator->profile()->create([
+            'first_name' => 'Administrator',
+	        'last_name' => 'System',
             'gender_id' => 1,
             'birth_date' => '12/09/1992',
 	        'phone' => env('CUSTOMER_TEST_PHONENUMBER'),
-	        'password' => 'adminadmin',
-	        'role_id' => 1,
         ]);
 
         $this->command->info('Administrator User Created !');
