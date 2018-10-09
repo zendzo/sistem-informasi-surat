@@ -12,7 +12,7 @@
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="{{ asset('login-v15/css/util.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('login-v15/css/main.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('login-v15/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
   <!--===============================================================================================-->
 </head>
 
@@ -30,7 +30,7 @@
     </div>
   </div>
 </body>
-<script src="{{ asset('login-v15/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('login-v15/js/main.js') }}"></script>
 
 </html>
