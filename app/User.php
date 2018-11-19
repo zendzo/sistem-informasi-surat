@@ -33,7 +33,10 @@ class User extends Authenticatable
 
     public function getFullNameAttribute()
     {
-        return $this->first_name.' '.$this->last_name ? $this->username : $this->email;
+        if($this->profile){
+            return $this->profile->first_name." ".$this->profile->last_name;
+        }
+        return $this->username;
     }
 
     public function getAvatarAttribute()
@@ -51,6 +54,19 @@ class User extends Authenticatable
 
     public function profile()
     {
+        if($this->role_id === 3){
+            return $this->hasOne(InstansiProfile::class);
+        }
         return $this->hasOne(UserProfile::class);
+    }
+
+    public function sentLetters()
+    {
+        return $this->hasMany(Surat::class,'sender_id');
+    }
+
+    public function incomingLetters()
+    {
+        return $this->belongsToMany(Surat::class,'letter_reciver');
     }
 }

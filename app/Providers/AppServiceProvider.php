@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\MenuCategory;
+use App\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         if (! $this->app->runningInConsole()) {
 
             // View::share('menuCategories', MenuCategory::with('menuItems')->get());
+            View::share('roles', Role::all());
         }
     }
 
