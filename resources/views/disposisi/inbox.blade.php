@@ -1,6 +1,6 @@
 <div class="box box-primary">
     <div class="box-header with-border">
-      <h3 class="box-title">Surat Keluar</h3>
+      <h3 class="box-title">Disposisi Masuk</h3>
   
       <div class="box-tools pull-right">
         <div class="has-feedback">
@@ -36,18 +36,12 @@
       <div class="table-responsive mailbox-messages">
         <table class="table table-hover table-striped">
           <tbody>
-          @forelse ($sentLetters->sortByDesc('id') as $letter)
+          @forelse ($incomingDisposisis->sortByDesc('id') as $letter)
           <tr>
               <td><input type="checkbox"></td>
               <td class="mailbox-star"><a href="#"><i class="fa fa-start text-yellow"></i></a></td>
-              <td class="mailbox-name">
-                <a href="{{ route('surat.show', $letter->id) }}">
-                  @foreach ($letter->recipient as $recipient)
-                      <i class="fa fa-user"></i> {{ $recipient->fullName }} |
-                  @endforeach
-                </a>
-              </td>
-              <td class="mailbox-subject"><b>{{ $letter->subject }}</b> - {{ str_limit($letter->summary, 41) }}
+              <td class="mailbox-name"><a href="{{ route('disposisi.show', $letter->id) }}">{{ $letter->sender->fullName }}</a></td>
+              <td class="mailbox-subject"><b>{{ $letter->subject }}</b>
               </td>
               <td class="mailbox-attachment"></td>
               <td class="mailbox-date">{{ $letter->created_at->diffForHumans() }}</td>

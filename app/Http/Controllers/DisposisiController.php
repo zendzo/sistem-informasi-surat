@@ -3,18 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Disposisi;
+use App\SuratType;
+use App\User;
 
 class DisposisiController extends Controller
 {
 
     public function inbox()
     {
-        # code...
+        $incomingDisposisis = auth()->user()->incomingDisposisis;
+
+        return view('disposisi.mail_box', compact(['incomingDisposisis']));
     }
 
     public function sent()
     {
-        # code...
+        $sentDisposisis = auth()->user()->sentDisposisis;
+
+        return view('disposisi.mail_box', compact(['sentDisposisis']));
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +30,9 @@ class DisposisiController extends Controller
      */
     public function index()
     {
-        //
+        $disposisis = Disposisi::all();
+
+        return view('disposisi.index', compact(['disposisis']));
     }
 
     /**
@@ -33,7 +42,11 @@ class DisposisiController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+
+        $suratTypes = SuratType::all();
+
+        return view('disposisi.mail_box', compact(['users','suratTypes']));
     }
 
     /**
@@ -44,7 +57,42 @@ class DisposisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        // return $request;
+
+        try{
+            $disposisi = Disposisi::create([
+                'letter_type_id' => $request->get('surat_type_id'),
+                'sender_id' => auth()->id(),
+                'letter_date' => $request->get('letter_date'),
+                'recived_date' => $request->get('recived_date'),
+                'letter_number' => $request->get('letter_number'),
+                'agenda_number' => $request->get('agenda_number'),
+                'subject' => $request->get('subject'),
+                'original_sender_name' => $request->get('original_sender_name'),
+                'summary' => $request->get('summary'),
+                'letter_instruction' => $request->get('letter_instruction'),
+                'sender_id' => auth()->id(),
+            ]);
+
+            $disposisi->recipient()->attach($request->get('letter_recipient'));
+
+            $disposisi->suratAttachments()->attach($request->get('surat'));
+
+            if ($request->hasFile('attachment')) {
+                $disposisi->addMediaFromRequest('attachment')->toMediaCollection('attachment');
+            }
+
+            return redirect()->route('disposisi.keluar')->with('message', 'Disposisi Telah Terkirim!')
+                ->with('status','Data Successfully Saved!')
+                ->with('type','success');
+
+            }catch (\Exception $e){
+                return redirect()->route('admin.dashboard')->with('message', $e->getMessage())
+                        ->with('status','Failed to Save Data!')
+                        ->with('type','error')
+                        ->withInput();
+            }
     }
 
     /**
@@ -53,9 +101,9 @@ class DisposisiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Disposisi $disposisi)
     {
-        //
+        return view('disposisi.mail_box', compact('disposisi'));
     }
 
     /**

@@ -30,7 +30,9 @@ class SuratController extends Controller
      */
     public function index()
     {
-        //
+        $surats = Surat::all();
+
+        return view('surat.index', compact(['surats']));
     }
 
     /**
@@ -60,13 +62,16 @@ class SuratController extends Controller
 
         try{
             $surat = Surat::create([
-                'surat_type_id' => $request->get('surat_type_id'),
-                'sender_id' => auth()->id(),
+                'angenda_number' => $request->get('angenda_number'),
                 'letter_date' => $request->get('letter_date'),
                 'send_date' => $request->get('send_date'),
-                'number' => $request->get('number'),
+                'original_sender_id' => $request->get('original_sender_id'),
+                'letter_number' => $request->get('letter_number'),
+                'summary' => $request->get('summary'),
+                'letter_instruction' => $request->get('letter_instruction'),
+                'sender_id' => auth()->id(),
+                'surat_type_id' => $request->get('surat_type_id'),
                 'subject' => $request->get('subject'),
-                'summary' => $request->get('summary')
             ]);
 
             $surat->recipient()->attach($request->get('letter_recipient'));
@@ -75,7 +80,7 @@ class SuratController extends Controller
                 $surat->addMediaFromRequest('attachment')->toMediaCollection('attachment');
             }
 
-            return redirect()->route('surat.masuk')->with('message', 'Upload Lowongan Pekerjaan Berhasil!')
+            return redirect()->route('surat.masuk')->with('message', 'Surat Telah Dikirim!')
                 ->with('status','Data Successfully Saved!')
                 ->with('type','success');
 

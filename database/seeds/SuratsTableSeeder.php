@@ -22,8 +22,8 @@ class SuratsTableSeeder extends Seeder
             Surat::create([
             'surat_type_id' => rand(1,3),
             'sender_id' => 1,
-            'letter_date' => $now,
-            'send_date' => $now->addDay(),
+            'letter_date' => $now->format('m/d/Y'),
+            'send_date' => $now->addDay()->format('m/d/Y'),
             'number' => strtoupper(str_random(5).'12345'),
             'subject' => $faker->sentence,
             'summary' => $faker->paragraph,

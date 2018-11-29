@@ -1,4 +1,4 @@
-<li class="treeview {{ active(['admin.user.*','admin.type-surat.*','surat.*']) }}">
+<li class="treeview {{ active(['admin.user.*','admin.type-surat.*','surat.*','disposisi.*','admin.surat.*','admin.disposisi.*']) }}">
   <a href="#">
     <i class="fa fa-list-alt"></i><span>Menu Utama</span>
     <span class="pull-right-container">
@@ -36,7 +36,7 @@
           </li>
       </ul>
   </li>
-  <li class="{{ active(['admin.type-surat.*']) }}"> <!-- active -->
+  <li class="{{ active(['admin.type-surat.*','admin.surat.*','admin.disposisi.*']) }}"> <!-- active -->
       <a href="#"><i class="fa fa-database"></i> Data System
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
@@ -47,12 +47,12 @@
             <a href="{{ route('admin.user.index') }}">
               <i class="fa fa-user"></i> User</a>
           </li>
-          <li class="{{ active('admin.user.index') }}"> <!-- active -->
-            <a href="{{ route('admin.user.index') }}">
+          <li class="{{ active('admin.surat.index') }}"> <!-- active -->
+            <a href="{{ route('admin.surat.index') }}">
               <i class="fa fa-envelope"></i> Surat</a>
           </li>
-          <li class="{{ active('admin.user.index') }}"> <!-- active -->
-            <a href="{{ route('admin.user.index') }}">
+          <li class="{{ active('admin.disposisi.index') }}"> <!-- active -->
+            <a href="{{ route('admin.disposisi.index') }}">
               <i class="fa fa-exchange"></i> Disposisi</a>
           </li>
           <li class="{{ active('admin.type-surat.index') }}"> <!-- active -->

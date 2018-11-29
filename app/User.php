@@ -69,4 +69,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Surat::class,'letter_reciver');
     }
+
+    public function sentDisposisis()
+    {
+        return $this->hasMany(Disposisi::class, 'sender_id');
+    }
+
+    public function incomingDisposisis()
+    {
+        return $this->belongsToMany(Disposisi::class, 'disposisi_reciver');
+    }
 }

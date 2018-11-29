@@ -18,6 +18,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'administrator'], f
 	
 	Route::resource('type-surat', 'SuratTypeController');
 
+	Route::get('/surat','SuratController@index')->name('surat.index');
+	
+	Route::get('/disposisi','DisposisiController@index')->name('disposisi.index');
+
 	Route::get('/application-menus',[
 		'as'	=>	'app.menu',
 		'uses'	=>	'Admin\MenuController@index'

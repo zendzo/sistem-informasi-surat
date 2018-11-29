@@ -23,8 +23,8 @@ class AdminSeeder extends Seeder
         ]);
 
         $administrator->profile()->create([
-            'first_name' => 'Administrator',
-	        'last_name' => 'System',
+            'first_name' => 'Admin',
+	        'last_name' => 'Kantor',
             'gender_id' => 1,
             'birth_date' => '12/09/1992',
 	        'phone' => env('CUSTOMER_TEST_PHONENUMBER'),

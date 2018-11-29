@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateInstansiProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('instansi_profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username',100);
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->integer('role_id')->default(2);
-            $table->rememberToken();
+            $table->string('instansi', 200);
+            $table->string('address', 200);
+            $table->string('phone', 200);
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('instansi_profiles');
     }
 }

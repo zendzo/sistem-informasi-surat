@@ -1,4 +1,4 @@
-<li class="treeview {{ active(['admin.user.*','admin.type-surat.*','surat.*']) }}">
+<li class="treeview {{ active(['admin.user.*','admin.type-surat.*','surat.*','disposisi.*']) }}">
     <a href="#">
       <i class="fa fa-list-alt"></i><span>Menu Utama</span>
       <span class="pull-right-container">
@@ -30,9 +30,6 @@
       <ul class="treeview-menu">
           <li class="{{ active('disposisi.masuk') }}"> <!-- active -->
             <a href="{{ route('disposisi.masuk') }}"><i class="fa fa-long-arrow-right"></i> Masuk</a>
-          </li>
-          <li class="{{ active('disposisi.keluar') }}"> <!-- active -->
-            <a href="{{ route('disposisi.keluar') }}"><i class="fa fa-long-arrow-left"></i> Keluar</a>
           </li>
       </ul>
   </li>

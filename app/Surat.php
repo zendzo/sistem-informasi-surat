@@ -42,4 +42,9 @@ class Surat extends Model implements HasMedia
     {
         return $this->belongsToMany(User::class, 'letter_reciver');
     }
+
+    public function type()
+    {
+        return $this->belongsTo(SuratType::class,'surat_type_id');
+    }
 }
