@@ -66,7 +66,7 @@ class SuratController extends Controller
                 'letter_date' => $request->get('letter_date'),
                 'send_date' => $request->get('send_date'),
                 'original_sender_id' => $request->get('original_sender_id'),
-                'letter_number' => $request->get('letter_number'),
+                'number' => $request->get('number'),
                 'summary' => $request->get('summary'),
                 'letter_instruction' => $request->get('letter_instruction'),
                 'sender_id' => auth()->id(),

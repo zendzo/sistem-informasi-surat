@@ -32,6 +32,8 @@
       <h5>Tanggal Surat: {{ $disposisi->letter_date }}</h5>
       <h5>Tanggal Diterima: {{ $disposisi->recived_date }}</h5>
       <h5>Instruksi Surat : {{ $disposisi->letter_instruction }}</h5>
+      <h5>Nomor Surat : {{ $disposisi->letter_number }}</h5>
+      <h5>Nomor Agenda : {{ $disposisi->agenda_number }}</h5>
       </div>
       <!-- /.mailbox-read-info -->
       <div class="mailbox-controls with-border text-center">

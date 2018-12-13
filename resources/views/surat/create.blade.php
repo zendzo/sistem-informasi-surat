@@ -83,7 +83,7 @@
             @endif
           </div> <!-- form-group -->
           <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
-            <input name="number" id="number" class="form-control" value="{{ strtoupper(str_random(5)) }}">
+            <input name="number" id="number" class="form-control" value="TPI/{{ date('Y') }}/{{ strtoupper(str_random(5)) }}">
               @if ($errors->has('number'))
                 <span class="help-block">
                     <strong>{{ $errors->first('number') }}</strong>

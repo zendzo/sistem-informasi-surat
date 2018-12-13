@@ -31,7 +31,7 @@
                     <td>{{ $surat->sender->fullName }}</td>
                     <td>{{ $surat->letter_date }}</td>
                     <td>{{ $surat->send_date }}</td>
-                    <td>{{ $surat->number }}</td>
+                    <td>00{{ $surat->id }}/{{ $surat->number }}</td>
                     <td>{{ $surat->subject }}</td>
                     <td>{{ $surat->summary }}</td>
                     <td>{{ $surat->created_at }}</td>

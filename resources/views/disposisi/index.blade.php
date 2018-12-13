@@ -31,8 +31,8 @@
                     <td>{{ $surat->id }}</td>
                     <td>{{ $surat->sender->fullName }}</td>
                     <td>{{ $surat->letterType->name }}</td>
-                    <td>{{ $surat->agenda_number}}</td>
-                    <td>{{ $surat->letter_number }}</td>
+                    <td>00{{ $surat->id }}/{{ $surat->agenda_number}}</td>
+                    <td>00{{ $surat->id }}/{{ $surat->letter_number }}</td>
                     <td>{{ $surat->recived_date }}</td>
                     <td>{{ $surat->letter_date }}</td>
                     <td>{{ $surat->original_sender_name }}</td>

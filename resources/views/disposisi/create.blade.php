@@ -79,7 +79,7 @@
               @endif
       </div> <!-- form-group -->
         <div class="form-group{{ $errors->has('agenda_number') ? ' has-error' : '' }}">
-          <input name="agenda_number" id="agenda_number" class="form-control" placeholder="Nomor Agenda:">
+          <input name="agenda_number" id="agenda_number" class="form-control" placeholder="Nomor Agenda:" value="TPI/AGD/{{ date('Y') }}/{{ strtoupper(str_random(5)) }}">
           @if ($errors->has('agenda_number'))
             <span class="help-block">
                 <strong>{{ $errors->first('agenda_number') }}</strong>
@@ -111,7 +111,7 @@
             @endif
           </div> <!-- form-group -->
           <div class="form-group{{ $errors->has('letter_number') ? ' has-error' : '' }}">
-            <input name="letter_number" id="letter_number" class="form-control" value="{{ strtoupper(str_random(5)) }}">
+            <input name="letter_number" id="letter_number" class="form-control" value="TPI/{{ date('Y') }}/{{ strtoupper(str_random(5)) }}">
               @if ($errors->has('letter_number'))
                 <span class="help-block">
                     <strong>{{ $errors->first('letter_number') }}</strong>
