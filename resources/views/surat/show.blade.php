@@ -18,6 +18,10 @@
             <a href="#"><i class="fa fa-user"></i> {{ $recipient->fullName }}</a>
         @endforeach
       </h5>
+      <h5>Jenis Surat: {{ $surat->type->name }}</h5>
+      <h5>Tanggal Surat: {{ $surat->letter_date }}</h5>
+      <h5>Tanggal Kirim: {{ $surat->send_date }}</h5>
+      <h5>Nomor Surat : 00{{ $surat->id }}/{{ $surat->number }}</h5>
       </div>
       <!-- /.mailbox-read-info -->
       <div class="mailbox-controls with-border text-center">
