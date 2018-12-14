@@ -7,7 +7,8 @@
         <div class="col-xs-12">
           <div class="box box-info">
             <div class="box-header">
-               <h3 class="box-title">{{ $page_title or config('app.name') }}</h3>
+               <h3 class="box-title">{{ $page_title or config('app.name') }}</h3><hr>
+               <a class="btn btn-success" data-toggle="modal" data-target="#roleModal" href="#"><span class="fa  fa-user-plus fa-fw"></span>&nbsp;Add New User</a>   
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -58,7 +59,7 @@
 
             <!-- Modal Button -->
             <div class="box-footer clearfix">
-              <a class="btn btn-success" data-toggle="modal" data-target="#roleModal" href="#"><span class="fa fa-plus fa-fw"></span>&nbsp;@lang('application.add new record')</a>   
+                <a class="btn btn-success" data-toggle="modal" data-target="#roleModal" href="#"><span class="fa  fa-user-plus fa-fw"></span>&nbsp;Add New User</a>   
             </div>
 
             <!-- Modal Form -->
