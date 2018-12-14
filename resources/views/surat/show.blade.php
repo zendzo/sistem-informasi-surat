@@ -19,8 +19,9 @@
         @endforeach
       </h5>
       <h5>Jenis Surat: {{ $surat->type->name }}</h5>
-      <h5>Tanggal Surat: {{ $surat->letter_date }}</h5>
-      <h5>Tanggal Kirim: {{ $surat->send_date }}</h5>
+      <h5>Tanggal Surat: {{ $surat->letter_date->format('d-m-Y') }}</h5>
+      <h5>Tanggal Kirim: {{ $surat->send_date->format('d-m-Y') }}</h5>
+      <h5>Tanggal Simpan: {{ $surat->created_at->format('d-m-Y') }}</h5>
       <h5>Nomor Surat : 00{{ $surat->id }}/{{ $surat->number }}</h5>
       </div>
       <!-- /.mailbox-read-info -->

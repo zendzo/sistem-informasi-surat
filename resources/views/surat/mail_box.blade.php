@@ -4,7 +4,24 @@
 <div class="row">
   <div class="col-md-3">
       @if (auth()->user()->role_id !== 3)
-        <a href="{{ route('surat.create') }}" class="btn btn-primary btn-block margin-bottom">Buat Surat</a>
+      <a href="{{ route('surat.create') }}" class="btn btn-primary btn-block margin-bottom">Buat Surat</a>
+      <div class="btn-group">
+        <button type="button" class="btn  btn-info margin-bottom"><i class="fa fa-list-alt"></i> Template Format Surat</button>
+        <button type="button" class="btn  btn-info dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Permohonan Nota Dinas</a></li>
+          <li class="divider"></li>
+          <li><a href="{{ route('surat.nota') }}">Permohonan Cuti Melahirkan</a></li>
+          <li><a href="#">Permohonan Cuti Besar</a></li>
+          <li><a href="#">Permohonan Cuti Menikah</a></li>
+          <li><a href="#">Suart Izin Tahunan</a></li>
+          <li><a href="#">Suart Penangguhan Pelaksanaan Cuti</a></li>
+          <li><a href="#">Suart Pelaksanaan Cuti Ditangguhkan</a></li>
+        </ul>
+      </div>
       @endif
 
       <div class="box box-solid">
@@ -45,6 +62,8 @@
       @include('surat.sent')
     @elseif(Request::segment(2) === 'kirim')
       @include('surat.create')
+    @elseif(Request::segment(2) === 'nota')
+      @include('surat.create_template_nota')
     @elseif(Request::segment(2) === 'show')
       @include('surat.show')
     @endif

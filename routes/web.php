@@ -20,6 +20,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'administrator'], f
 
 	Route::get('/surat','SuratController@index')->name('surat.index');
 	
+	Route::get('/surat-cuti-tahunan','TemplateSuratController@notaDinas');
+	
 	Route::get('/disposisi','DisposisiController@index')->name('disposisi.index');
 
 	Route::get('/application-menus',[
@@ -34,6 +36,7 @@ Route::get('surat/masuk', 'SuratController@inbox')->name('surat.masuk')->middlew
 Route::get('surat/keluar', 'SuratController@sent')->name('surat.keluar')->middleware('auth');
 Route::get('surat/show/{surat}', 'SuratController@show')->name('surat.show')->middleware('auth');
 Route::get('surat/kirim', 'SuratController@create')->name('surat.create')->middleware('auth');
+Route::get('surat/nota', 'TemplateSuratController@notaDinas')->name('surat.nota')->middleware('auth');
 Route::post('surat', 'SuratController@store')->name('surat.store')->middleware('auth');
 
 Route::get('disposisi/masuk', 'DisposisiController@inbox')->name('disposisi.masuk')->middleware('auth');
