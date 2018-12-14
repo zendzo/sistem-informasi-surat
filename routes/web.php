@@ -24,6 +24,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'administrator'], f
 	
 	Route::get('/disposisi','DisposisiController@index')->name('disposisi.index');
 
+	Route::get('/disposisi/disetujui','DisposisiController@approvedList')->name('disposisi.approved');
+
+	Route::get('/disposisi/ditolak','DisposisiController@rejectedList')->name('disposisi.rejected');
+
 	Route::get('/application-menus',[
 		'as'	=>	'app.menu',
 		'uses'	=>	'Admin\MenuController@index'
@@ -44,5 +48,9 @@ Route::get('disposisi/keluar', 'DisposisiController@sent')->name('disposisi.kelu
 Route::get('disposisi/show/{disposisi}', 'DisposisiController@show')->name('disposisi.show')->middleware('auth');
 Route::get('disposisi/kirim', 'DisposisiController@create')->name('disposisi.create')->middleware('auth');
 Route::post('disposisi', 'DisposisiController@store')->name('disposisi.store')->middleware('auth');
+
+Route::get('/approve/{id}','DisposisiApprovalController@approved')->name('approve.disposisi');
+
+Route::get('/reject/{id}','DisposisiApprovalController@reject')->name('reject.disposisi');
 
 Route::get('/home', 'HomeController@index')->name('home');

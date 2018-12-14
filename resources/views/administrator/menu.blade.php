@@ -53,7 +53,15 @@
           </li>
           <li class="{{ active('admin.disposisi.index') }}"> <!-- active -->
             <a href="{{ route('admin.disposisi.index') }}">
-              <i class="fa fa-exchange"></i> Disposisi</a>
+              <i class="fa fa-exchange"></i> Semua Disposisi</a>
+          </li>
+          <li class="{{ active('admin.disposisi.approved') }}"> <!-- active -->
+            <a href="{{ route('admin.disposisi.approved') }}">
+              <i class="fa fa-exchange text-green"></i> Disposisi Disetujui</a>
+          </li>
+          <li class="{{ active('admin.disposisi.rejected') }}"> <!-- active -->
+            <a href="{{ route('admin.disposisi.rejected') }}">
+              <i class="fa fa-exchange text-red"></i> Disposisi Ditolak</a>
           </li>
           <li class="{{ active('admin.type-surat.index') }}"> <!-- active -->
             <a href="{{ route('admin.type-surat.index') }}">

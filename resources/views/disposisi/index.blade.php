@@ -14,6 +14,7 @@
           <tr>
             <th>#</th>
             <th>Pengirim</th>
+            <th>Status</th>
             <th>Jenis</th>
             <th>No. Agenda</th>
             <th>No. Srt</th>
@@ -30,6 +31,13 @@
                 <tr>
                     <td>{{ $surat->id }}</td>
                     <td>{{ $surat->sender->fullName }}</td>
+                    <td>
+                        @if ($surat->confirmed)
+                            <a href="#" class="btn btn-xs btn-success">Disetujui</a>
+                        @else
+                          <a href="#" class="btn btn-xs btn-warning">Ditolak</a>
+                        @endif
+                    </td>
                     <td>{{ $surat->letterType->name }}</td>
                     <td>00{{ $surat->id }}/{{ $surat->agenda_number}}</td>
                     <td>00{{ $surat->id }}/{{ $surat->letter_number }}</td>

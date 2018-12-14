@@ -139,4 +139,18 @@ class DisposisiController extends Controller
     {
         //
     }
+
+    public function approvedList()
+    {
+        $disposisis = Disposisi::where('confirmed',true)->orderBy('created_at','DESC')->get();
+
+        return view('disposisi.index', compact(['disposisis']));
+    }
+
+    public function rejectedList()
+    {
+        $disposisis = Disposisi::where('confirmed',false)->orderBy('created_at','DESC')->get();
+
+        return view('disposisi.index', compact(['disposisis']));
+    }
 }

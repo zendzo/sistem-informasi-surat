@@ -12,7 +12,8 @@
       <div class="mailbox-read-info">
         <h3>{{ $disposisi->subject }}</h3>
       <h5>Dari: {{ $disposisi->sender->fullName }}
-          <span class="mailbox-read-time pull-right">{{ $disposisi->created_at->toDayDateTimeString() }}</span></h5>
+          <span class="mailbox-read-time pull-right">{{ $disposisi->created_at->toDayDateTimeString() }}</span>
+        </h5>
       <h5>Kepada:
         @foreach ($disposisi->recipient as $recipient)
             <a href="#"><i class="fa fa-user"></i> {{ $recipient->fullName }}</a>
@@ -34,6 +35,13 @@
       <h5>Instruksi Surat : {{ $disposisi->letter_instruction }}</h5>
       <h5>Nomor Surat : 00{{ $disposisi->id }}/{{ $disposisi->letter_number }}</h5>
       <h5>Nomor Agenda : 00{{ $disposisi->id }}/{{ $disposisi->agenda_number }}</h5>
+      <h5>Status :
+        @if ($disposisi->confirmed)
+          <a href="#" class="btn btn-xs btn-success">Disetujui</a>
+        @else
+        <a href="#" class="btn btn-xs btn-warning">Ditolak</a>
+        @endif
+      </h5>
       </div>
       <!-- /.mailbox-read-info -->
       <div class="mailbox-controls with-border text-center">
@@ -47,8 +55,16 @@
         </div>
         <!-- /.btn-group -->
         <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
-          <i class="fa fa-print"></i></button>
+          <i class="fa fa-print"></i>
+        </button>
+        <a href="{{ route('approve.disposisi',$disposisi->id) }}" class="btn btn-primary btn-sm" data-toggle="tooltip" title="Print">
+            <i class="fa fa-check"></i> Setujui
+        </a>
+        <a href="{{ route('reject.disposisi', $disposisi->id) }}" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Print">
+            <i class="fa fa-ban"></i> Tolak
+        </a>
       </div>
+      
       <!-- /.mailbox-controls -->
       <div class="mailbox-read-message">
         {!! $disposisi->summary !!}
